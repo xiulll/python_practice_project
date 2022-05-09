@@ -16,4 +16,8 @@ class PeopleInfo(models.Model):
     # 外键约束：人物属于哪本书
     book = models.ForeignKey(BookInfo,on_delete=models.CASCADE)
     def __str__(self):
-        return "姓名："+self.name+" 性别："+str(self.gender)
+        if self.gender:
+            sex = '男'
+        else:
+            sex = '女'
+        return "姓名："+self.name+" 性别："+sex
